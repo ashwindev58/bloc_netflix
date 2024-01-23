@@ -44,7 +44,7 @@ class ScreenIdelePage extends StatelessWidget {
                 final movie = state.idleList[index];
                 return TopsearchItemTile(
                     tittle: movie.title ?? "no tittle",
-                    imageUrl: '$imageAppendUrl${movie.posterPath}' ?? "");
+                    imageUrl: '$imageAppendUrl${movie.posterPath}');
               },
             );
           }),

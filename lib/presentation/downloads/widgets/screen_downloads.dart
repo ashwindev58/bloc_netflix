@@ -120,17 +120,17 @@ class Section1 extends StatelessWidget {
                       ),
                       DownloadsimageWidget(
                           imageUrl:
-                              "$imageAppendUrl${state.downloadsList?[0].posterPath}",
+                              "$imageAppendUrl${state.downloadsList[0].posterPath}",
                           angle: 10,
                           margin: const EdgeInsets.only(left: 100)),
                       DownloadsimageWidget(
                           imageUrl:
-                              "$imageAppendUrl${state.downloadsList?[1].posterPath}",
+                              "$imageAppendUrl${state.downloadsList[1].posterPath}",
                           angle: -10,
                           margin: const EdgeInsets.only(right: 100)),
                       DownloadsimageWidget(
                           imageUrl:
-                              "$imageAppendUrl${state.downloadsList?[2].posterPath}",
+                              "$imageAppendUrl${state.downloadsList[2].posterPath}",
                           angle: 0),
                     ]),
                   );

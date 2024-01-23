@@ -6,7 +6,6 @@ import '../../main_page/widgets/bottom_nav.dart';
 import '../../new_and_hot/screen_new_and_hot.dart';
 import '../../search/screen_search.dart';
 
-import '../../home/screen_home.dart';
 
 final pages = [
   const ScreenHomePage(),

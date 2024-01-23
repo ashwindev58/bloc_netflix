@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:main_netflix_bloc/domain/downloads/models/downloads.dart';
 
 import '../../../core/constants.dart';
 import '../../downloads/widgets/screen_downloads.dart';
 import '../../widgets/custom_icon_bottom_label_button.dart';
+
+class VideoListItemInheritedWidget extends InheritedWidget {
+  final Widget widget;
+  final DownloadModel movieData;
+
+  const VideoListItemInheritedWidget(
+      {super.key,
+      required this.widget,
+      required this.movieData}) : super(child: widget);
+
+  @override
+  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    return oldWidget.movieData != movieData;
+  }
+
+  static VideoListItemInheritedWidget? of(BuildContext context){
+
+    return  context.dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
+
+}
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -10,6 +32,7 @@ class VideoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final posterPath=VideoListItemInheritedWidget.of(context)?.movieData.posterPath;
     return Stack(
       children: [
         Container(
@@ -36,7 +59,7 @@ class VideoListItem extends StatelessWidget {
                     Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: CircleAvatar(
-                            backgroundImage: NetworkImage(imageList[0]),
+                            backgroundImage:posterPath==null?null: NetworkImage('$imageAppendUrl$posterPath'),
                             radius: 30)),
                     const CustomIconWithBottomLabelButtonWidget(
                       icon: Icons.emoji_emotions,

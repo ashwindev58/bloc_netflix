@@ -12,6 +12,7 @@ class DownloadsRepository implements IDownloadRepo {
   @override
   Future<Either<Mainfailure, List<DownloadModel>>> getdownloadsImage() async {
     log("==============================started get downloads ...");
+    log((ApiEndPoints.downloads));
     try {
       final Response response =
           await Dio(BaseOptions()).get(ApiEndPoints.downloads);
@@ -22,6 +23,7 @@ class DownloadsRepository implements IDownloadRepo {
             (response.data['results'] as List).map((e) {
           return DownloadModel.fromJson(e);
         }).toList();
+            log("==============================returning get downloads ...$downloadsList");
 
         return Right(downloadsList);
       } else {

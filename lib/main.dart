@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:main_netflix_bloc/application/downloads/downloads_bloc.dart';
 
+import 'application/fast_laugh/fastlaugh_bloc.dart';
 import 'application/search/search_bloc.dart';
 import 'core/Colors/colors.dart';
-import 'domain/downloads/i_downloads_repo.dart';
 import 'domain/search/search_service.dart';
 import 'infrastructure/downloads/downloads_repository.dart';
 import 'infrastructure/search/search_implements.dart';
@@ -33,6 +33,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<SearchBloc>(
             create: (context) =>
                 SearchBloc(globaDownloadRepo, globalsearchServiceImplements)),
+        BlocProvider<FastlaughBloc>(
+            create: (context) =>
+                FastlaughBloc(globaDownloadRepo)),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -56,3 +59,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+// https://www.youtube.com/watch?v=B_3pZYhjjR4&list=PLY-ecO2csVHcUlBVvIMAa3dbja12TFJiN&index=53 completed next watch it
